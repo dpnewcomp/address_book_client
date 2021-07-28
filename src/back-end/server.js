@@ -9,7 +9,16 @@ app.use(function (req, res, next) {
 
 app.get("/middlewareUserGeneration", async (req, res) => {
 
-    let result = await queryData();
+    try {
+
+        let result = await queryData()
+        res.status(200).send(result)
+
+    } catch (err) {
+
+        res.status(500).send(err.toLocaleString())
+
+    }
 
     function queryData() {
 
@@ -30,12 +39,9 @@ app.get("/middlewareUserGeneration", async (req, res) => {
 
             })
 
-
         })
 
     }
-
-    res.status(200).send(result);
 
 })
 

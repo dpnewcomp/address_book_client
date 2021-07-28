@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./components/app"
+import App from "./front-end/components/app"
 
 /**
  * This is how we initially render the <App/> react component into the index.html <DIV> and specifically target 'root' element

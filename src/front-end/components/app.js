@@ -38,7 +38,6 @@ export default class App extends React.Component {
     async componentDidMount() {
 
         let FourPersonArray = await this.queryData();
-        console.log(FourPersonArray);
         let classCreatedPersonArray = FourPersonArray.map((obj) => (
             new Person(obj)
         ))
@@ -151,10 +150,13 @@ export default class App extends React.Component {
 
             // send get request and handle response
             axios.get('http://localhost:8080/middlewareUserGeneration').then((response) => {
+
                 console.log(response);
                 resolve(response.data);
 
             }).catch((error) => {
+
+                console.log(error);
 
                 reject(error); // reject promise if error
 
@@ -213,6 +215,3 @@ class Person {
     }
 
 }
-
-
-//https://randomuser.me/api/?results=10&seed=foobar
